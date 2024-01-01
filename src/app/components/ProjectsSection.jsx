@@ -34,12 +34,12 @@ const projectsData = [
   },
   {
     id: 4,
-    title: "Ejbni",
-    description: "Food Ordering Application",
+    title: "Audomate",
+    description: "An Auditing system for client",
     image: "/images/projects/4.png",
-    tag: ["All", "Mobile"],
+    tag: ["All", "web"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://audomate.vercel.app/login",
   },
   {
     id: 5,
@@ -52,12 +52,12 @@ const projectsData = [
   },
   {
     id: 6,
-    title: "Full-stack Roadmap",
-    description: "Project 5 description",
+    title: "Onmine",
+    description: "A cryoto related website",
     image: "/images/projects/6.png",
     tag: ["All", "Web"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://onmine-landing-page.vercel.app/",
   },
 ];
 
