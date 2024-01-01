@@ -11,31 +11,6 @@ const EmailSection = () => {
   const [loading, setLoading] = useState(false)
   const [emailSubmitted, setEmailSubmitted] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const sendEmail = () => {
-      setLoading(true);
-      return emailjs
-        .sendForm(
-          "service_ahi1e5a",
-          "template_vn4f39o",
-          ref.current,
-          "k55QZW6kYDHtPC0Dq"
-        )
-        .then(
-          (result) => {
-            setLoading(false);
-            setEmailSubmitted(true)
-          },
-          (error) => {
-            setLoading(false);
-            
-          }
-        );
-    };
-    sendEmail()
-  };
-
   return (
     <section
       id="contact"
