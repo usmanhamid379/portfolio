@@ -7,9 +7,38 @@ import Image from "next/image";
 import emailjs from "@emailjs/browser";
 
 const EmailSection = () => {
+  const SERVICE_ID= process.env.SERVICE_ID
+  const TEMPLATE_ID= process.env.TEMPLATE_ID
+  const PUBLIC_ID= process.env.PUBLIC_ID
+  console.log('SERVICE_ID', SERVICE_ID)
   const ref = useRef(null)
   const [loading, setLoading] = useState(false)
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const sendEmail = () => {
+      setLoading(true);
+      return emailjs
+        .sendForm(
+          "service_ahi1e5a",
+          "template_vn4f39o",
+          ref.current,
+          "k55QZW6kYDHtPC0Dq"
+        )
+        .then(
+          (result) => {
+            setLoading(false);
+            setEmailSubmitted(true)
+          },
+          (error) => {
+            setLoading(false);
+            
+          }
+        );
+    };
+    sendEmail()
+  };
 
   return (
     <section
