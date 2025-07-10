@@ -5,6 +5,8 @@ import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
 import emailjs from "@emailjs/browser";
+import { toast } from 'react-toastify';
+
 
 const EmailSection = () => {
   const SERVICE_ID= process.env.SERVICE_ID
@@ -28,11 +30,15 @@ const EmailSection = () => {
         )
         .then(
           (result) => {
+            console.log('result', result)
             setLoading(false);
             setEmailSubmitted(true)
+            toast.success("Email sent successfully")
           },
           (error) => {
+            console.log('error', error)
             setLoading(false);
+            toast.error("Something went wrong")
             
           }
         );
@@ -120,9 +126,17 @@ const EmailSection = () => {
             </div>
             <button
               type="submit"
-              className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+              className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 
+              px-5 rounded-lg w-full flex justify-center items-center"
             >
-              Send Message
+              {
+               !loading ? 
+                  <span>
+                    Send Message
+                  </span>
+                  :<span className="w-4 h-4 border border-l-0 border-white rounded-full animate-spin"></span>
+                
+              }
             </button>
           </form>
         )}
